@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 const SignUpForm = (props) => {
   const history = useHistory()
-  const [form, handleInputChange] = useForm({name: '', email: '', password: ''})
+  const [form, handleInputChange] = useForm({name: '',nickname: '',email: '', password: ''})
   const [isLoading, setIsLoading] = useState(false)
 
   const onClickSignUp = (event) => {
@@ -30,7 +30,18 @@ const SignUpForm = (props) => {
             value={form.name}
             name={'name'}
             onChange={handleInputChange}
-            label={'Nome'}
+            label={'Name'}
+            variant={'outlined'}
+            fullWidth
+            required
+            autoFocus
+            margin={'normal'}
+          />
+          <TextField
+            value={form.nickname}
+            name={'nickname'}
+            onChange={handleInputChange}
+            label={'Nickname'}
             variant={'outlined'}
             fullWidth
             required
@@ -68,7 +79,7 @@ const SignUpForm = (props) => {
           fullWidth
           margin={'normal'}
         >
-          {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Fazer Cadastro</>}
+          {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Singup</>}
         </Button>
       </SignUpFormContainer>
     </form>

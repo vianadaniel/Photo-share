@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { goToLogin, goToRecipesFeed } from '../../routes/Coordinator'
 import Button from '@material-ui/core/Button'
 import { AppBarTitle, ButtonsContainer } from './styled'
-import { Restaurant } from '@material-ui/icons'
+import { Photo } from '@material-ui/icons'
 import Typography from '@material-ui/core/Typography'
 
 const MainAppBar = (props) => {
@@ -30,8 +30,8 @@ const MainAppBar = (props) => {
       <Toolbar>
         <ButtonsContainer>
           <Button color={"inherit"} onClick={() => goToRecipesFeed(history)}>
-            <Restaurant />
-            <AppBarTitle variant={'h6'}>Cookenu</AppBarTitle>
+            <Photo />
+            <AppBarTitle variant={'h6'}>Photo Share</AppBarTitle>
           </Button>
           <Button color={"inherit"} onClick={appBarAction}>
             <Typography variant={'h6'}>{buttonName}</Typography>
