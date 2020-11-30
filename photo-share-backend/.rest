@@ -1,0 +1,22 @@
+### CREATE USER
+
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Alice",
+	"email": "alice@lbn.com",
+	"nickname": "alice",
+	"password": "123456"
+}
+
+### LOGIN
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"email": "alice@lbn.com",
+	"password": "123456"
+}
+
