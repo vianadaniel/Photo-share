@@ -1,5 +1,5 @@
 import { CustomError } from "../errors/CustomError";
-import { User, stringToUserRole } from "../model/User";
+import { User} from "../model/User";
 import userDatabase, { UserDatabase } from "../data/UserDatabase";
 import hashGenerator, { HashGenerator } from "../services/hashGenerator";
 import idGenerator, { IdGenerator } from "../services/idGenerator";
@@ -16,12 +16,13 @@ export class UserBusiness {
 
    public  signup = async (
       name: string,
+      nickname: string,
       email: string,
-      password: string,
-      role: string
+      password: string
+      
    ) => {
       try {
-         if (!name || !email || !password || !role) {
+         if (!name || !email || !nickname || !password ) {
             throw new CustomError(422, "Missing input");
          }
 
@@ -38,12 +39,12 @@ export class UserBusiness {
          const cypherPassword = await this.hashGenerator.hash(password);
 
          await this.userDatabase.createUser(
-            new User(id, name, email, cypherPassword, stringToUserRole(role))
+            new User(id, name, nickname, email, cypherPassword)
          );
 
          const accessToken = this.tokenGenerator.generate({
-            id,
-            role,
+            id
+            
          });
          
          return { accessToken };
@@ -80,8 +81,8 @@ export class UserBusiness {
          }
 
          const accessToken = this.tokenGenerator.generate({
-            id: user.getId(),
-            role: user.getRole(),
+            id: user.getId()
+            
          });
 
          return { accessToken };

@@ -9,8 +9,8 @@ export class TokenGenerator {
   public generate = (input: AuthenticationData): string => {
     const newToken = jwt.sign(
       {
-        id: input.id,
-        role: input.role,
+        id: input.id
+        
       },
       process.env.JWT_KEY as string,
       {
@@ -23,23 +23,23 @@ export class TokenGenerator {
   public getData(token: string): AuthenticationData {
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
     const result = {
-      id: payload.id,
-      role: payload.role
+      id: payload.id
+      
     };
     return result;
   }
 
 
-  public verify(token: string) {
+  public verify(token: string): AuthenticationData{
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
-    const result = { id: payload.id, role: payload.role };
+    const result = { id: payload.id };
     return result;
   }
 }
 
 export interface AuthenticationData {
   id: string;
-  role: string;
+  
 }
 
 export default new TokenGenerator()

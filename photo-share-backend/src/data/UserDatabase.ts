@@ -27,7 +27,7 @@ export class UserDatabase extends BaseDataBase {
             '${user.getName()}', 
             '${user.getNickname()}',
             '${user.getEmail()}',
-            '${user.getPassword()}', 
+            '${user.getPassword()}' 
             )`
          );
       } catch (error) {

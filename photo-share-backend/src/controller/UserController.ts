@@ -11,12 +11,13 @@ export class UserController {
    public  signup = async  (req: Request, res: Response) => {
       try {
          
-         const { name, role, email, password } = req.body
+         const { name, nickname, email, password } = req.body
          const result = await this.userBusiness.signup(
             name,
+            nickname,
             email,
-            password,
-            role
+            password
+            
          );
          res.status(200).send(result);
       } catch (error) {

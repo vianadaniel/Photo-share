@@ -25,9 +25,11 @@ export class CreateDatabase extends BaseDataBase {
         subtitle VARCHAR(255)  NOT NULL,
         author VARCHAR(255) NOT NULL,
         date INT NOT NULL,
-        file xxx,
-        tags xxx,
-        collection VARCHAR(255) NOT NULL
+        file VARCHAR(255) NOT NULL,
+        tags VARCHAR(255) NOT NULL,
+        collection VARCHAR(255) NOT NULL,
+        users_id VARCHAR(255) NOT NULL,
+        FOREIGN KEY(users_id) REFERENCES users_photo(id)
         
       )
       `)
