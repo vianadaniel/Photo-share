@@ -42,7 +42,7 @@ const LoginForm = (props) => {
               value={form.password}
               name={'password'}
               onChange={handleInputChange}
-              label={'Senha'}
+              label={'Password'}
               variant={'outlined'}
               type={'password'}
               fullWidth
@@ -58,7 +58,7 @@ const LoginForm = (props) => {
             fullWidth
             margin={'normal'}
           >
-            {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Fazer Login</>}
+            {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Login</>}
           </Button>
         </LoginFormContainer>
       </form>

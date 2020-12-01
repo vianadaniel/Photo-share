@@ -4,9 +4,10 @@ import { goToRecipesFeed } from '../routes/Coordinator'
 
 export const login = (body, history, setButtonName, setIsLoading) => {
   setIsLoading(true)
-  axios.post(`${BASE_URL}/user/login`, body)
+  axios.post(`${BASE_URL}/users/login`, body)
     .then((response) => {
-      localStorage.setItem('token', response.data.token)
+      console.log(response)
+      localStorage.setItem('token', response.data.accessToken)
       setIsLoading(false)
       goToRecipesFeed(history)
       setButtonName('Logout')
@@ -14,7 +15,7 @@ export const login = (body, history, setButtonName, setIsLoading) => {
     .catch((error) => {
       console.log(error)
       setIsLoading(false)
-      alert("Falha no Login, tente novamente")
+      alert("Login fail, try again")
     })
 }
 
@@ -22,7 +23,7 @@ export const signUp = (body, history, setButtonName, setIsLoading) => {
   setIsLoading(true)
   axios.post(`${BASE_URL}/user/signup`, body)
     .then((response)=>{
-      localStorage.setItem('token', response.data.token)
+      localStorage.setItem('token', response.data.accessToken)
       setIsLoading(false)
       goToRecipesFeed(history)
       setButtonName('Logout')
@@ -30,6 +31,6 @@ export const signUp = (body, history, setButtonName, setIsLoading) => {
     .catch((error) => {
       console.log(error)
       setIsLoading(false)
-      alert("Falha no Cadastro, tente novamente")
+      alert("Register fail, try again")
     })
 }

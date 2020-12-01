@@ -13,7 +13,7 @@ const Router = (props) => {
         <Route exact path={'/login'}>
           <LoginPage setButtonName={props.setButtonName}/>
         </Route>
-        <Route exact path={'/cadastro'}>
+        <Route exact path={'/signup'}>
           <SignUpPage setButtonName={props.setButtonName}/>
         </Route>
         <Route exact path={['/receitas', '/']}>

@@ -22,7 +22,7 @@ const LoginPage = (props) => {
           type={'submit'}
           fullWidth
         >
-          Não tem cadastro? Clique aqui!
+          No register? Click here!
         </Button>
       </SignUpButtonContainer>
     </ScreenContainer>

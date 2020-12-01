@@ -63,7 +63,7 @@ const SignUpForm = (props) => {
             value={form.password}
             name={'password'}
             onChange={handleInputChange}
-            label={'Senha'}
+            label={'Password'}
             variant={'outlined'}
             type={'password'}
             fullWidth
@@ -79,7 +79,7 @@ const SignUpForm = (props) => {
           fullWidth
           margin={'normal'}
         >
-          {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Singup</>}
+          {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>signup</>}
         </Button>
       </SignUpFormContainer>
     </form>

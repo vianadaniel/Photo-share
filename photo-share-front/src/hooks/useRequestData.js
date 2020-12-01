@@ -16,7 +16,7 @@ const useRequestData = (initialData, endpoint) => {
       })
       .catch((error) => {
         console.log(error)
-        alert('Ocorreu um erro, tente novamente')
+        alert('Fail, try again')
       })
   }, [endpoint])
 
