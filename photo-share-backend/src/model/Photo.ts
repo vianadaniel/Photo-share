@@ -6,13 +6,24 @@ export interface PhotoInputDTO {
        collection: string
 }
 
+export interface PhotoOutputDTO {
+  id: string,
+  subtitle: string,
+  author: string,
+  date: string,
+  file: string,
+  tags: string,
+  collection: string,
+  users_id: string
+}
+
 
 export class Photo {
     constructor(
       private id: string,
       private subtitle: string,
       private author: string,
-      private date: number,
+      private date: string,
       private file: string,
       private tags: string,
       private collection: string,
@@ -32,7 +43,7 @@ export class Photo {
       return this.author;
     }
   
-    public getDate(): number {
+    public getDate(): string {
       return this.date;
     }
   

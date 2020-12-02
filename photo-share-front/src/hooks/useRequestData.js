@@ -6,13 +6,10 @@ const useRequestData = (initialData, endpoint) => {
   const [data, setData] = useState(initialData)
 
   useEffect(() => {
-    axios.get(`${BASE_URL}${endpoint}`, {
-      headers: {
-        Authorization: localStorage.getItem('token')
-      }
-    })
+    axios.get(`${BASE_URL}${endpoint}`)
       .then((response) => {
-        setData(response.data)
+        console.log(response)
+        setData(response.data.photos)
       })
       .catch((error) => {
         console.log(error)

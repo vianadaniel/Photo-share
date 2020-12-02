@@ -1,9 +1,10 @@
 import BaseDataBase from "./BaseDatabase";
-import { Photo } from "../model/Photo";
+import { Photo, PhotoOutputDTO } from "../model/Photo";
 
 export class PhotoDatabase extends BaseDataBase {
 
     protected tableName: string = "photo_share";
+    
  
     private toModel(dbModel?: any): Photo | undefined {
        return (
@@ -43,15 +44,26 @@ export class PhotoDatabase extends BaseDataBase {
  
     
      
-    public async getPhotos(): Promise<Photo[]> {
+    public  getPhotos = async(): Promise<PhotoOutputDTO[]> => {
        try {
           const result = await BaseDataBase.connection.raw(`
              SELECT * from ${this.tableName}
           `);
-          return result[0].map((res: any) => {
-             return this.toModel(res);
+          
+          return result[0].map((data: any) => {
+             return {
+               id: data.id,
+               subtitle: data.subtitle,
+               author: data.author,
+               date: data.date,
+               file: data.file,
+               tags: data.tags,
+               collection: data.collection,
+               users_id: data.users_id
+             };
           });
        } catch (error) {
+          console.log(error)
           throw new Error(error.sqlMessage || error.message)
        }
     }

@@ -1,30 +1,30 @@
 import { Request, Response } from "express"
-import { BandBusiness } from "../business/BandBusiness"
-import { BandDatabase } from "../data/BandDatabase"
+import { PhotoBusiness } from "../business/PhotoBusiness"
+
 import BaseDatabase  from "../data/BaseDatabase"
+import { PhotoDatabase } from "../data/PhotoDatabase"
 import { PhotoInputDTO } from "../model/Photo"
-import { Authenticator } from "../services/Authenticator"
-import { IdGenerator } from "../services/IdGenerator"
+
 export class PhotoController {
-   
-    async registerBand(req: Request, res: Response) {
+    constructor(
+        private photoBusiness: PhotoBusiness
+        
+        
+     ) { }
+    public registerPhoto = async(req: Request, res: Response) =>{
         try {
+            const { subtitle, author, file, tags, collection } = req.body
             const input: PhotoInputDTO = {
-                subtitle: string,
-                author: string,
-                date: number,
-                file: string,
-                tags: string,
-                collection: string
+                subtitle: subtitle,
+                author: author,
+                file: file,
+                tags: tags,
+                collection: collection
             }
     
-            const bandBusiness = new BandBusiness(
-                new BandDatabase,
-                new IdGenerator,
-                new Authenticator
-            )
+            
     
-            await bandBusiness.registerBand(input, req.headers.authorization as string)
+            await this.photoBusiness.createPhoto(input, req.headers.authorization as string)
     
             res.sendStatus(200)
         } catch (err) {
@@ -35,4 +35,20 @@ export class PhotoController {
             await BaseDatabase.destroyConnection()
         }
     }
+
+    async getPhotos(req: Request, res: Response) {
+        try {
+            const photoDatabase = new PhotoDatabase
+            const photos = await photoDatabase.getPhotos()
+
+            res.status(200).send({ photos })
+        } catch (err) {
+            res.status(err.customErrorCode || 400).send({
+                message: err.message,
+            })
+        } finally {
+            await BaseDatabase.destroyConnection()
+        }
+    }
 }
+

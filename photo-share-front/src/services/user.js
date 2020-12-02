@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
-import { goToRecipesFeed } from '../routes/Coordinator'
+import { goToPhotosFeed } from '../routes/Coordinator'
 
 export const login = (body, history, setButtonName, setIsLoading) => {
   setIsLoading(true)
@@ -9,7 +9,7 @@ export const login = (body, history, setButtonName, setIsLoading) => {
       console.log(response)
       localStorage.setItem('token', response.data.accessToken)
       setIsLoading(false)
-      goToRecipesFeed(history)
+      goToPhotosFeed(history)
       setButtonName('Logout')
     })
     .catch((error) => {
@@ -25,7 +25,7 @@ export const signUp = (body, history, setButtonName, setIsLoading) => {
     .then((response)=>{
       localStorage.setItem('token', response.data.accessToken)
       setIsLoading(false)
-      goToRecipesFeed(history)
+      goToPhotosFeed(history)
       setButtonName('Logout')
     })
     .catch((error) => {

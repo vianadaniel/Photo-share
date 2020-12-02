@@ -20,3 +20,21 @@ Content-Type: application/json
 	"password": "123456"
 }
 
+### Create photo
+
+POST http://localhost:3003/photo/create
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNjkyMDU3NSwiZXhwIjoxNjA2OTkyNTc1fQ.vEd6NerzbwzIiJMI7cqoVWFTQJDVBnl2z7EsV6HmTIE
+
+{
+	"subtitle": "Por do sol",
+	"author": "Jon",
+	"file": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Sunset_in_Manaus.jpg/1200px-Sunset_in_Manaus.jpg",
+	"tags": "#SOl",
+	"collection": "Landscape"
+}
+
+### Get photos
+
+GET http://localhost:3003/photo/all
+Content-Type: application/json

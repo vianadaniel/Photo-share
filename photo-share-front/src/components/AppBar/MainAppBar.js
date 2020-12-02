@@ -2,7 +2,7 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import { useHistory } from 'react-router-dom'
-import { goToLogin, goToRecipesFeed } from '../../routes/Coordinator'
+import { goToLogin, goToPhotosFeed } from '../../routes/Coordinator'
 import Button from '@material-ui/core/Button'
 import { AppBarTitle, ButtonsContainer } from './styled'
 import { Photo } from '@material-ui/icons'
@@ -29,7 +29,7 @@ const MainAppBar = (props) => {
     <AppBar>
       <Toolbar>
         <ButtonsContainer>
-          <Button color={"inherit"} onClick={() => goToRecipesFeed(history)}>
+          <Button color={"inherit"} onClick={() => goToPhotosFeed(history)}>
             <Photo />
             <AppBarTitle variant={'h6'}>Photo Share</AppBarTitle>
           </Button>

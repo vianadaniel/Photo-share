@@ -1,7 +1,7 @@
 import { CustomError } from "../errors/CustomError";
 import { Photo, PhotoInputDTO} from "../model/Photo";
 import photoDatabase, { PhotoDatabase } from "../data/PhotoDatabase";
-
+import moment from "moment";
 import idGenerator, { IdGenerator } from "../services/idGenerator";
 import tokenGenerator, { TokenGenerator } from "../services/tokenGenerator";
 
@@ -22,18 +22,16 @@ export class PhotoBusiness {
             throw new CustomError(422, "Missing input");
          }
          const id = this.idGenerator.generate();
+         const date= moment().format("YYYY-MM-DD") 
          
-         const users_id = this.tokenGenerator.verify(token)
+         const users_id = String(this.tokenGenerator.verify(token).id)
          
 
          await this.photoDatabase.createPhoto(
             new Photo(id, input.subtitle, input.author, date, input.file, input.tags,input.collection, users_id)
          );
 
-         const accessToken = this.tokenGenerator.generate({
-            id
-            
-         });
+         
          
          
       } catch (error) {

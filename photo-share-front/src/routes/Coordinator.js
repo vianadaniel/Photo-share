@@ -6,8 +6,8 @@ export const goToSignUp = (history) => {
   history.push('/signup')
 }
 
-export const goToRecipesFeed = (history) => {
-  history.push('/receitas')
+export const goToPhotosFeed = (history) => {
+  history.push('/photos')
 }
 
 export const goToAddRecipe = (history) => {

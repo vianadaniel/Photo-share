@@ -4,17 +4,17 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import { RecipeCardContainer, RecipeCardContent } from './styled'
 
-const RecipeCard = (props) => {
+const PhotoCard = (props) => {
 
   return (
-    <RecipeCardContainer onClick={props.onClick}>
+    <RecipeCardContainer >
       <CardActionArea>
         <CardMedia
           component={'img'}
-          alt={props.title}
+          alt={props.subtitle}
           height={'150px'}
-          image={props.image}
-          title={props.title}
+          image={props.file}
+          title={props.subtitle}
         />
         <RecipeCardContent>
           <Typography align={'center'}>
@@ -26,4 +26,4 @@ const RecipeCard = (props) => {
   )
 }
 
-export default RecipeCard
+export default PhotoCard

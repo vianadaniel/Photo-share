@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { BASE_URL } from '../constants/urls'
-import { goToRecipesFeed } from '../routes/Coordinator'
+import { goToPhotosFeed } from '../routes/Coordinator'
 
 export const addRecipe = (body, history, setIsLoading) => {
   setIsLoading(true)
@@ -11,7 +11,7 @@ export const addRecipe = (body, history, setIsLoading) => {
   }).then((response) => {
       setIsLoading(false)
       alert('Receita adicionada com sucesso!')
-      goToRecipesFeed(history)
+      goToPhotosFeed(history)
     }
   ).catch((error) => {
       console.log(error)

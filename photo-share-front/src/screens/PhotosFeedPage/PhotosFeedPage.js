@@ -1,6 +1,6 @@
 import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
-import RecipeCard from './RecipeCard'
+import PhotoCard from './PhotoCard'
 import useRequestData from '../../hooks/useRequestData'
 import Loading from '../../components/Loading/Loading'
 import { AddRecipeButton, FeedContainer } from './styled'
@@ -8,28 +8,29 @@ import { goToAddRecipe, goToRecipeDetail } from '../../routes/Coordinator'
 import { useHistory } from 'react-router-dom'
 import { Add } from '@material-ui/icons'
 
-const RecipeFeedPage = () => {
+const PhotosFeedPage = () => {
   useProtectedPage()
   const history = useHistory()
-  const recipes = useRequestData([], '/recipe/feed')
+  const photo = useRequestData([], '/photo/all')
+  console.log(photo.photos)
 
-  const renderRecipes = () => (
-    recipes.map((item) => {
+  const renderPhotos = () => (
+    photo.map((item) => {
       return (
-        <RecipeCard
-          key={item.recipe_id}
-          onClick={() => goToRecipeDetail(history, item.recipe_id)}
-          title={item.title}
-          image={item.image}
+        <PhotoCard
+          key={item.id}
+          
+          title={item.subtitle}
+          image={item.file}
         />
       )
     })
   )
-
   return (
     <>
       <FeedContainer>
-        {recipes.length > 0 ? renderRecipes() : <Loading/>}
+         
+        {photo.length > 0 ? renderPhotos() : <Loading/>}
       </FeedContainer>
       <AddRecipeButton color={'primary'} onClick={() => goToAddRecipe(history)}>
         <Add/>
@@ -39,4 +40,4 @@ const RecipeFeedPage = () => {
   )
 }
 
-export default RecipeFeedPage
+export default PhotosFeedPage
