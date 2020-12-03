@@ -38,3 +38,31 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAt
 
 GET http://localhost:3003/photo/all
 Content-Type: application/json
+
+### Create photo 2
+
+POST http://localhost:3003/photo/create
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNjkyMDU3NSwiZXhwIjoxNjA2OTkyNTc1fQ.vEd6NerzbwzIiJMI7cqoVWFTQJDVBnl2z7EsV6HmTIE
+
+{
+	"subtitle": "Nascer do sol",
+	"author": "Jon",
+	"file": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Nascer-do-Sol.jpg",
+	"tags": "#SOl",
+	"collection": "Landscape"
+}
+
+### Create photo 3
+
+POST http://localhost:3003/photo/create
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNjkyMDU3NSwiZXhwIjoxNjA2OTkyNTc1fQ.vEd6NerzbwzIiJMI7cqoVWFTQJDVBnl2z7EsV6HmTIE
+
+{
+	"subtitle": "O boi",
+	"author": "Jon",
+	"file": "https://media.gazetadopovo.com.br/2017/11/70a6c29d2dd33466f1b53da1de2d9ec9-gpMedium.jpg",
+	"tags": "#SOl",
+	"collection": "Animals"
+}

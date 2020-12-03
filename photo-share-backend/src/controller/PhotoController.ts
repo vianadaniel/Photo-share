@@ -31,9 +31,10 @@ export class PhotoController {
             res.status(err.customErrorCode || 400).send({
                 message: err.message
             })
-        } finally {
-            await BaseDatabase.destroyConnection()
-        }
+        } 
+        // finally {
+        //     await BaseDatabase.destroyConnection()
+        // }
     }
 
     async getPhotos(req: Request, res: Response) {
@@ -46,9 +47,10 @@ export class PhotoController {
             res.status(err.customErrorCode || 400).send({
                 message: err.message,
             })
-        } finally {
-            await BaseDatabase.destroyConnection()
-        }
+        } 
+        // finally {
+        //     await BaseDatabase.destroyConnection()
+        // }
     }
 }
 
