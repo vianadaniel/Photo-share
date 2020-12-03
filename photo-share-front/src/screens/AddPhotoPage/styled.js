@@ -16,7 +16,7 @@ export const InputsContainer = styled.div`
   margin-bottom: 20px;
 `
 
-export const AddRecipeFormContainer = styled.div`
+export const AddPhotoFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 80vw;
@@ -25,7 +25,7 @@ export const AddRecipeFormContainer = styled.div`
   margin-bottom: 20px;
 `
 
-export const RecipeContainer = styled.div`
+export const PhotoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

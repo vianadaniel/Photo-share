@@ -4,7 +4,7 @@ import LoginPage from '../screens/LoginPage/LoginPage'
 import SignUpPage from '../screens/SignUpPage/SignUpPage'
 import PhotosFeedPage from '../screens/PhotosFeedPage/PhotosFeedPage'
 import RecipeDetailPage from '../screens/RecipeDetailPage/RecipeDetailPage'
-import AddRecipePage from '../screens/AddRecipePage/AddRecipePage'
+import AddPhotoPage from '../screens/AddPhotoPage/AddPhotoPage'
 import ErrorPage from '../screens/ErrorPage/ErrorPage'
 
 const Router = (props) => {
@@ -22,8 +22,8 @@ const Router = (props) => {
         <Route exact path={'/receitas/:id'}>
           <RecipeDetailPage/>
         </Route>
-        <Route exact path={'/adicionarReceita'}>
-          <AddRecipePage/>
+        <Route exact path={'/addphoto'}>
+          <AddPhotoPage/>
         </Route>
         <Route>
           <ErrorPage/>

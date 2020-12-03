@@ -8,7 +8,7 @@ const useRequestData = (initialData, endpoint) => {
   useEffect(() => {
     axios.get(`${BASE_URL}${endpoint}`)
       .then((response) => {
-        console.log(response)
+        
         setData(response.data.photos)
       })
       .catch((error) => {

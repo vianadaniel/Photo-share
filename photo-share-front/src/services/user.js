@@ -6,7 +6,7 @@ export const login = (body, history, setButtonName, setIsLoading) => {
   setIsLoading(true)
   axios.post(`${BASE_URL}/users/login`, body)
     .then((response) => {
-      console.log(response)
+      
       localStorage.setItem('token', response.data.accessToken)
       setIsLoading(false)
       goToPhotosFeed(history)

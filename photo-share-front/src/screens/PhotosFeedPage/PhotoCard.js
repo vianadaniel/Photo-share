@@ -2,27 +2,27 @@ import React from 'react'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
-import { RecipeCardContainer, RecipeCardContent } from './styled'
+import { PhotoCardContainer, PhotoCardContent } from './styled'
 
 const PhotoCard = (props) => {
 
   return (
-    <RecipeCardContainer >
+    <PhotoCardContainer >
       <CardActionArea>
         <CardMedia
           component={'img'}
           alt={props.subtitle}
           height={'150px'}
-          image={props.file}
+          image={props.image}
           title={props.subtitle}
         />
-        <RecipeCardContent>
+        <PhotoCardContent>
           <Typography align={'center'}>
             {props.title.toUpperCase()}
           </Typography>
-        </RecipeCardContent>
+        </PhotoCardContent>
       </CardActionArea>
-    </RecipeCardContainer>
+    </PhotoCardContainer>
   )
 }
 

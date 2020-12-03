@@ -10,8 +10,8 @@ export const goToPhotosFeed = (history) => {
   history.push('/photos')
 }
 
-export const goToAddRecipe = (history) => {
-  history.push('/adicionarReceita')
+export const goToAddPhoto = (history) => {
+  history.push('/addphoto')
 }
 
 export const goToRecipeDetail = (history, id) => {
