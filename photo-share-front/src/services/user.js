@@ -21,7 +21,7 @@ export const login = (body, history, setButtonName, setIsLoading) => {
 
 export const signUp = (body, history, setButtonName, setIsLoading) => {
   setIsLoading(true)
-  axios.post(`${BASE_URL}/user/signup`, body)
+  axios.post(`${BASE_URL}/users/signup`, body)
     .then((response)=>{
       localStorage.setItem('token', response.data.accessToken)
       setIsLoading(false)

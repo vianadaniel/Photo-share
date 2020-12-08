@@ -1,27 +1,28 @@
 import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
-import PhotoCard from './PhotoCard'
+import CollectionCard from './CollectionCard'
 import useRequestData from '../../hooks/useRequestData'
 import Loading from '../../components/Loading/Loading'
 import { AddPhotoButton, FeedContainer } from './styled'
-import { goToAddPhoto, goToPhotoDetail } from '../../routes/Coordinator'
+import { goToAddCollection, goToCollectionDetail } from '../../routes/Coordinator'
 import { useHistory } from 'react-router-dom'
 import { Add } from '@material-ui/icons'
 
-const PhotosFeedPage = () => {
+const CollectionsFeedPage = () => {
   useProtectedPage()
   const history = useHistory()
-  const photo = useRequestData([], '/photo/all')
+  const collections = useRequestData([], '/collection/all')
   
 
-  const renderPhotos = () => (
-    photo.map((item) => {
+  const renderCollections = () => (
+    collections.map((item) => {
       return (
-        <PhotoCard
+        <CollectionCard
           key={item.id}
-          onClick={() => goToPhotoDetail(history, item.id)}
+          onClick={() => goToCollectionDetail(history, item.title)}
+          title={item.title}
           subtitle={item.subtitle}
-          file={item.file}
+          image={item.image}
         />
       )
     })
@@ -30,9 +31,9 @@ const PhotosFeedPage = () => {
     <>
       <FeedContainer>
          
-        {photo.length > 0 ? renderPhotos() : <Loading/>}
+        {collections.length > 0 ? renderCollections() : <Loading/>}
       </FeedContainer>
-      <AddPhotoButton color={'primary'} onClick={() => goToAddPhoto(history)}>
+      <AddPhotoButton color={'primary'} onClick={() => goToAddCollection(history)}>
         <Add/>
       </AddPhotoButton>
 
@@ -40,4 +41,4 @@ const PhotosFeedPage = () => {
   )
 }
 
-export default PhotosFeedPage
+export default CollectionsFeedPage

@@ -14,6 +14,18 @@ export const goToAddPhoto = (history) => {
   history.push('/addphoto')
 }
 
-export const goToRecipeDetail = (history, id) => {
-  history.push(`/receitas/${id}`)
+export const goToPhotoDetail = (history, id) => {
+  history.push(`/photo/${id}`)
+}
+
+export const goToCollectionsFeed = (history) => {
+  history.push('/collections')
+}
+
+export const goToCollectionDetail = (history, collection) => {
+  history.push(`/collections/${collection}`)
+}
+
+export const goToAddCollection = (history) => {
+  history.push('/addcollection')
 }

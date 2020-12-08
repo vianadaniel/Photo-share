@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-
-export const RecipeImage = styled.img`
+import Fab from '@material-ui/core/Fab'
+export const PhotoImage = styled.img`
   width: 60vw;
   max-width: 600px;
   min-width: 300px;
@@ -15,10 +15,16 @@ export const ScreenContainer = styled.div`
   margin: 30px;
 `
 
-export const RecipeContainer = styled.div`
+export const PhotoContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 60vw;
   max-width: 600px;
   min-width: 300px;
+`
+export const RemovePhotoButton = styled(Fab)`
+  position: fixed !important;
+  left: 20px;
+  bottom: 20px;
+  z-index: 3;
 `

@@ -9,7 +9,7 @@ const useRequestData = (initialData, endpoint) => {
     axios.get(`${BASE_URL}${endpoint}`)
       .then((response) => {
         
-        setData(response.data.photos)
+        setData(response.data)
       })
       .catch((error) => {
         console.log(error)

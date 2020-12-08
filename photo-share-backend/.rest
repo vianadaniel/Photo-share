@@ -24,7 +24,7 @@ Content-Type: application/json
 
 POST http://localhost:3003/photo/create
 Content-Type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNjkyMDU3NSwiZXhwIjoxNjA2OTkyNTc1fQ.vEd6NerzbwzIiJMI7cqoVWFTQJDVBnl2z7EsV6HmTIE
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNzAxODQwNywiZXhwIjoxNjA3MDkwNDA3fQ.wjHFAt3URYG7He2DQQjAGzLk1ia1t_MAOV7uiYSck9I
 
 {
 	"subtitle": "Por do sol",
@@ -38,6 +38,17 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAt
 
 GET http://localhost:3003/photo/all
 Content-Type: application/json
+
+### Get photo by ID
+
+GET http://localhost:3003/photo/0607878d-979e-4889-94a8-5a296d042c6f
+Content-Type: application/json
+
+### Delete photo by ID
+
+DELETE http://localhost:3003/photo/delete/0607878d-979e-4889-94a8-5a296d042c6f
+Content-Type: application/json
+
 
 ### Create photo 2
 
@@ -57,7 +68,7 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAt
 
 POST http://localhost:3003/photo/create
 Content-Type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNjkyMDU3NSwiZXhwIjoxNjA2OTkyNTc1fQ.vEd6NerzbwzIiJMI7cqoVWFTQJDVBnl2z7EsV6HmTIE
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwNzM1MTY4OSwiZXhwIjoxNjA3NDIzNjg5fQ.ePgq5-iiRKzctJBKfP7dYG-TSfKl3JxEeaj1VKZq1QQ
 
 {
 	"subtitle": "O boi",
@@ -66,3 +77,26 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAt
 	"tags": "#SOl",
 	"collection": "Animals"
 }
+
+### Create collection 
+
+POST http://localhost:3003/collection/create
+Content-Type: application/json
+
+
+{
+	"title": "Landscape",
+	"subtitle": "Some nature views",
+	"image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Nascer-do-Sol.jpg"
+	
+}
+
+### Get collections
+
+GET http://localhost:3003/collection/all
+Content-Type: application/json
+
+### Get photos by Collections
+
+GET http://localhost:3003/collection/Landscape
+Content-Type: application/json

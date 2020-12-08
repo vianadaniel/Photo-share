@@ -3,6 +3,7 @@ import {AddressInfo} from "net";
 import cors from "cors"
 import { userRouter } from "./router/UserRouter";
 import { photoRouter } from "./router/PhotoRouter";
+import { collectionRouter } from "./router/CollectionRouter";
 
 const app = express();
 
@@ -11,7 +12,7 @@ app.use(express.json());
 
 app.use("/users", userRouter)
 app.use("/photo", photoRouter)
-
+app.use("/collection", collectionRouter)
 
 const server = app.listen(3003, () => {
   

@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { PhotoBusiness } from "../business/PhotoBusiness"
 
-import BaseDatabase  from "../data/BaseDatabase"
+
 import { PhotoDatabase } from "../data/PhotoDatabase"
 import { PhotoInputDTO } from "../model/Photo"
 
@@ -42,7 +42,7 @@ export class PhotoController {
             const photoDatabase = new PhotoDatabase
             const photos = await photoDatabase.getPhotos()
 
-            res.status(200).send({ photos })
+            res.status(200).send(photos )
         } catch (err) {
             res.status(err.customErrorCode || 400).send({
                 message: err.message,
@@ -52,5 +52,40 @@ export class PhotoController {
         //     await BaseDatabase.destroyConnection()
         // }
     }
+
+    async getPhotoById(req: Request, res: Response) {
+        try {
+            const photoDatabase = new PhotoDatabase
+            const id = req.params.id
+            const photo = await photoDatabase.getPhotoById(id)
+
+            res.status(200).send(photo )
+        } catch (err) {
+            res.status(err.customErrorCode || 400).send({
+                message: err.message,
+            })
+        } 
+        // finally {
+        //     await BaseDatabase.destroyConnection()
+        // }
+    }
+
+    async deletePhotoById(req: Request, res: Response) {
+        try {
+            const photoDatabase = new PhotoDatabase
+            const id = req.params.id
+             await photoDatabase.deletePhotoById(id)
+
+            res.status(200).send("delete photo" )
+        } catch (err) {
+            res.status(err.customErrorCode || 400).send({
+                message: err.message,
+            })
+        } 
+        // finally {
+        //     await BaseDatabase.destroyConnection()
+        // }
+    }
+
 }
 

@@ -33,6 +33,15 @@ export class CreateDatabase extends BaseDataBase {
         
       )
       `)
+      await BaseDataBase.connection
+      .raw(`
+      CREATE TABLE IF NOT EXISTS collection_share (
+        id VARCHAR(255) PRIMARY KEY,
+        title VARCHAR(255)  NOT NULL,
+        subtitle VARCHAR(255) NOT NULL,
+        image VARCHAR(255) NOT NULL
+      )
+      `)
       
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
