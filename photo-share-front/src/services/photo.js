@@ -9,11 +9,16 @@ export const addPhoto = (body, history, setIsLoading) => {
       Authorization: localStorage.getItem('token')
     }
   }).then((response) => {
+
       setIsLoading(false)
       alert('Post new photo!')
       goToPhotosFeed(history)
     }
   ).catch((error) => {
+    console.log(error.response.data)
+    if (error.response.data.message === "jwt expired"){
+      alert('Session expired')
+    }
       console.log(error)
       setIsLoading(false)
       alert('Fail post new photo!')
