@@ -14,6 +14,10 @@ export const goToAddPhoto = (history) => {
   history.push('/addphoto')
 }
 
+export const goToUsers = (history) => {
+  history.push('/users')
+}
+
 export const goToPhotoDetail = (history, id) => {
   history.push(`/photo/${id}`)
 }

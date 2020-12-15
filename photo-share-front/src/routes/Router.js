@@ -9,6 +9,7 @@ import ErrorPage from '../screens/ErrorPage/ErrorPage'
 import CollectionsFeedPage from '../screens/CollectionsPage/CollectionsFeedPage'
 import CollectionsDetailPage from '../screens/CollectionsDetailPage/CollectionsDetailPage'
 import AddCollectionPage from '../screens/AddColectionPage/AddCollectionPage'
+import UsersFeedPage from '../screens/UsersFeedPage/UsersFeedPage'
 
 const Router = (props) => {
   return(
@@ -36,6 +37,9 @@ const Router = (props) => {
         </Route>
         <Route exact path={'/addcollection'}>
           <AddCollectionPage/>
+        </Route>
+        <Route exact path={'/users'}>
+          <UsersFeedPage/>
         </Route>
         <Route>
           <ErrorPage/>

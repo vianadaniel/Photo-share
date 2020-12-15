@@ -10,6 +10,30 @@ Content-Type: application/json
 	"password": "123456"
 }
 
+### CREATE USER 2
+
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Joao",
+	"email": "joao@lbn.com",
+	"nickname": "Jon",
+	"password": "123456"
+}
+
+### CREATE USER 3
+
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+	"name": "Deborah",
+	"email": "deb@lbn.com",
+	"nickname": "Deb",
+	"password": "123456"
+}
+
 ### LOGIN
 
 POST http://localhost:3003/users/login
