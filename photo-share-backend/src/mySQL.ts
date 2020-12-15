@@ -42,6 +42,16 @@ export class CreateDatabase extends BaseDataBase {
         image VARCHAR(255) NOT NULL
       )
       `)
+      await BaseDataBase.connection
+      .raw(`
+      CREATE TABLE IF NOT EXISTS users_follow (
+        user_id VARCHAR(255) NOT NULL,
+        user_follow VARCHAR(255)  NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users_photo(id),
+        FOREIGN KEY(user_follow) REFERENCES users_photo(id),
+        PRIMARY KEY(user_id, user_follow)
+      )
+      `)
       
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);

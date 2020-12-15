@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import   userBusiness, {UserBusiness}  from "../business/UserBusiness";
+import {UserDatabase} from "../data/UserDatabase";
 
 
 export class UserController {
@@ -37,5 +38,20 @@ export class UserController {
          res.status(statusCode || 400).send({ message });
       }
    }
+   async getUsers(req: Request, res: Response) {
+      try {
+          const userDatabase = new UserDatabase
+          const users = await userDatabase.getAllUsers()
+
+          res.status(200).send(users )
+      } catch (err) {
+          res.status(err.customErrorCode || 400).send({
+              message: err.message,
+          })
+      } 
+      // finally {
+      //     await BaseDatabase.destroyConnection()
+      // }
+  }
 }
 

@@ -10,3 +10,4 @@ const userController = new UserController(userBusiness)
 
 userRouter.post("/signup", userController.signup);
 userRouter.post("/login", userController.login);
+userRouter.get("/all", userController.getUsers);
