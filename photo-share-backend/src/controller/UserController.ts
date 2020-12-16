@@ -8,6 +8,7 @@ export class UserController {
 
    constructor(
       private userBusiness: UserBusiness
+      
    ) { }
    public  signup = async  (req: Request, res: Response) => {
       try {
@@ -53,5 +54,38 @@ export class UserController {
       //     await BaseDatabase.destroyConnection()
       // }
   }
+  public followUser = async(req: Request, res: Response) =>{
+   try {
+      const id = req.params.id
+
+       
+
+       await this.userBusiness.followUser(id, req.headers.authorization as string)
+
+       res.sendStatus(200)
+   } catch (err) {
+       res.status(err.customErrorCode || 400).send({
+           message: err.message
+       })
+   } 
+   // finally {
+   //     await BaseDatabase.destroyConnection()
+   // }
+}
+ public getFriends = async (req: Request, res: Response) =>{
+   try {
+       
+       const friends = await this.userBusiness.getFriends( req.headers.authorization as string)
+
+       res.status(200).send(friends)
+   } catch (err) {
+       res.status(err.customErrorCode || 400).send({
+           message: err.message,
+       })
+   } 
+   // finally {
+   //     await BaseDatabase.destroyConnection()
+   // }
+}
 }
 

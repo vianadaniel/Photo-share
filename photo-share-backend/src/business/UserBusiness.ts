@@ -90,6 +90,56 @@ export class UserBusiness {
          throw new CustomError(error.statusCode, error.message)
       }
    }
+   public  followUser = async (
+      id: string,
+      token: string
+       
+   ) => {
+      try {
+         
+        
+         const users_id = String(this.tokenGenerator.verify(token).id)
+         
+
+         await this.userDatabase.createFollowUser(
+            id, users_id
+         );
+
+         
+         
+         
+      } catch (error) {
+         
+         throw new CustomError(error.statusCode, error.message)
+      }
+
+   }
+
+   public  getFriends = async (
+      
+      token: string
+       
+   ) => {
+      try {
+         
+        
+         const users_id = String(this.tokenGenerator.verify(token).id)
+         
+
+         return this.userDatabase.getFriends(
+             users_id
+         );
+
+         
+         
+         
+      } catch (error) {
+         
+         throw new CustomError(error.statusCode, error.message)
+      }
+
+   }
+
 }
 
 export default new UserBusiness(

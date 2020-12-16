@@ -129,3 +129,15 @@ Content-Type: application/json
 
 GET http://localhost:3003/collection/Landscape
 Content-Type: application/json
+
+### Follow user
+
+PUT http://localhost:3003/users/follow/18526f6d-06d0-495d-b75c-c5b8427f24c0
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwODEyNDE1MiwiZXhwIjoxNjA4MTk2MTUyfQ.AqZ9YbfFvDmGMJS-ar8blQ8Skisgvxkk86T68LTAwV8
+
+### Get friends
+
+GET http://localhost:3003/users/friends
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFlMDdlNjE2LTAwOTAtNGRlZi05Yjk0LTY2MWEwZjMyMGVjYSIsImlhdCI6MTYwODEyNDE1MiwiZXhwIjoxNjA4MTk2MTUyfQ.AqZ9YbfFvDmGMJS-ar8blQ8Skisgvxkk86T68LTAwV8
