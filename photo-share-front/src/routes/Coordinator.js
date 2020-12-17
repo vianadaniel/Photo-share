@@ -26,6 +26,9 @@ export const goToCollectionsFeed = (history) => {
   history.push('/collections')
 }
 
+export const goToFriendsFeed = (history) => {
+  history.push('/friends')
+}
 export const goToCollectionDetail = (history, collection) => {
   history.push(`/collections/${collection}`)
 }
