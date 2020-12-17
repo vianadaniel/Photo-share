@@ -1,17 +1,18 @@
 import React from 'react'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import UserCard from './UserCard'
-import useRequestData from '../../hooks/useRequestData'
+
 import Loading from '../../components/Loading/Loading'
 import {  FeedContainer } from './styled'
 import {  goToPhotoDetail } from '../../routes/Coordinator'
 import { useHistory } from 'react-router-dom'
+import useRequestDataToken from '../../hooks/useRequestDataToken'
 
 
-const UserFeedPage = () => {
+const FriendsFeedPage = () => {
   useProtectedPage()
   const history = useHistory()
-  const users = useRequestData([], '/users/all')
+  const users = useRequestDataToken([], '/users/friends')
   
 
   const renderUsers = () => (
@@ -21,7 +22,7 @@ const UserFeedPage = () => {
           key={item.id}
           onClick={() => goToPhotoDetail(history, item.id)}
           name={item.name}
-          id={item.id}
+          
         />
       )
     })
@@ -38,4 +39,4 @@ const UserFeedPage = () => {
   )
 }
 
-export default UserFeedPage
+export default FriendsFeedPage
