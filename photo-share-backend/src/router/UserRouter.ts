@@ -13,3 +13,4 @@ userRouter.post("/login", userController.login);
 userRouter.get("/all", userController.getUsers);
 userRouter.put("/follow/:id", userController.followUser);
 userRouter.get("/friends", userController.getFriends);
+userRouter.get("/friends/:id", userController.getPhotosFriends)

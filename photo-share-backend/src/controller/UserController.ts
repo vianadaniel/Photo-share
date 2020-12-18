@@ -87,5 +87,21 @@ export class UserController {
    //     await BaseDatabase.destroyConnection()
    // }
 }
+public getPhotosFriends = async (req: Request, res: Response) =>{
+   try {
+      const userDatabase = new UserDatabase
+       const id = req.params.id
+       const photos = await userDatabase.getPhotosFriends(id)
+
+       res.status(200).send(photos)
+   } catch (err) {
+       res.status(err.customErrorCode || 400).send({
+           message: err.message,
+       })
+   } 
+   // finally {
+   //     await BaseDatabase.destroyConnection()
+   // }
+}
 }
 

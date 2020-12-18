@@ -5,7 +5,7 @@ export class UserDatabase extends BaseDataBase {
 
    protected tableName: string = "users_photo";
    protected tableNameFollow: string = "users_follow";
-
+   protected tableNamePhotos: string = "photo_share";
    private toModel(dbModel?: any): User | undefined {
       return (
          dbModel &&
@@ -99,6 +99,27 @@ export class UserDatabase extends BaseDataBase {
                name: data.name
                
              };
+         });
+      } catch (error) {
+         throw new Error(error.sqlMessage || error.message)
+      }
+   }
+   public async getPhotosFriends(id: string): Promise<User | undefined> {
+      try {
+         const result = await BaseDataBase.connection.raw(`
+            SELECT * from ${this.tableNamePhotos} WHERE users_id = '${id}'
+         `);
+         return result[0].map((data: any) => {
+            return {
+              id: data.id,
+              subtitle: data.subtitle,
+              author: data.author,
+              date: data.date,
+              file: data.file,
+              tags: data.tags,
+              collection: data.collection,
+              users_id: data.users_id
+            };
          });
       } catch (error) {
          throw new Error(error.sqlMessage || error.message)

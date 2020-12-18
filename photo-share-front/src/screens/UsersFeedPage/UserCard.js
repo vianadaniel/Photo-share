@@ -12,11 +12,11 @@ const UserCard = (props) => {
   const history = useHistory();
   const handleAddFriend = async() => {
     try {
-      await axios.put(`${BASE_URL}/users/follow/${props.id}`, {
+      await axios.put(`${BASE_URL}/users/follow/${props.id}`,null, {
         headers: 
         {
           "Content-Type": "application/json",
-          authorization: localStorage.getItem('token')
+          Authorization: localStorage.getItem('token')
         }
       })
       
