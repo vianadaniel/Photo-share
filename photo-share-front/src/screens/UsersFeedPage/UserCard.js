@@ -8,6 +8,7 @@ import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
 import { FeedContainer } from '../PhotosFeedPage/styled'
 import {goToFriendsFeed} from '../../routes/Coordinator'
+import {toast} from 'react-toastify'
 const UserCard = (props) => {
   const history = useHistory();
   const handleAddFriend = async() => {
@@ -19,9 +20,12 @@ const UserCard = (props) => {
           Authorization: localStorage.getItem('token')
         }
       })
+
+      toast.success('Amigo adicionado com sucesso')
       
       goToFriendsFeed(history)
       } catch(err) {
+        toast.error('Amigo não foi adicionado')
        console.log(err.message)
       }
   }
