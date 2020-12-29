@@ -15,7 +15,8 @@ export const UserCardContent = styled(CardContent)`
   justify-content: space-between;
   align-items: center;
   border: 1px solid;
-  height: 10px;
+  border-radius: 4px !important;
+  padding: 8px 15px !important;
 `
 
 export const FeedContainer = styled.div`
