@@ -1,12 +1,9 @@
 import styled from 'styled-components'
-import Card from '@material-ui/core/Card'
+
 import CardContent from '@material-ui/core/CardContent'
 
 
-export const PhotoCardContainer = styled(Card)`
-  width: 250px;
-  margin: 10px
-`
+
 
 export const UserCardContent = styled(CardContent)`
   display: flex;
@@ -15,7 +12,8 @@ export const UserCardContent = styled(CardContent)`
   justify-content: space-between;
   align-items: center;
   border: 1px solid;
-  height: 10px;
+  border-radius: 4px !important;
+  padding: 8px 15px !important;
 `
 
 export const FeedContainer = styled.div`
@@ -26,7 +24,6 @@ export const FeedContainer = styled.div`
   justify-content: center;
   margin-top: 40px
 `
-
 
 
 

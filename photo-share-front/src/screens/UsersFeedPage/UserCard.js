@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { Add } from '@material-ui/icons'
+
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import {  UserCardContent } from './styled'
@@ -21,11 +21,11 @@ const UserCard = (props) => {
         }
       })
 
-      toast.success('Amigo adicionado com sucesso')
+      toast.success('Add friend')
       
       goToFriendsFeed(history)
       } catch(err) {
-        toast.error('Amigo não foi adicionado')
+        toast.error('Not possible to add friend')
        console.log(err.message)
       }
   }
@@ -43,7 +43,7 @@ const UserCard = (props) => {
           </Typography>
           <Button onClick={() => handleAddFriend(history)}>
 
-        <Add color={'primary'} />
+        Add
           </Button>
       
         </UserCardContent>
